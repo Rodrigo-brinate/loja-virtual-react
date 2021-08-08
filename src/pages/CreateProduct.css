@@ -1,0 +1,22 @@
+div.form {
+    width: max-content;
+margin: auto;
+margin-top: -600px;
+}
+
+input, select {
+    display: block;
+    margin-top: 20px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(96, 160, 96);
+    padding: 2px 5px 2px 5px;
+    width: 100%;
+    margin-top: 20px;
+}

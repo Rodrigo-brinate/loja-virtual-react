@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 5%;
+}
+
+div.icons-header {
+    margin-right: 5%;
+    display: flex;
+}
+
+img.icons-header {
+    width: 20px;
+    margin-right: 40px;
+}
+
+input.search {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+}

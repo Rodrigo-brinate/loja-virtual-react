@@ -1,0 +1,21 @@
+.carousel {
+    width: 80% ;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-text {
+    font-size: 13px;
+    color: gray;
+    font-weight: normal;
+}
+
+.card {
+    display: inline-flex;
+    margin-left: 10px;
+}
+
+.carrosel-home  {
+    width: 80% !important;
+}

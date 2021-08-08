@@ -1,0 +1,60 @@
+.carousel {
+    width: 40% ;
+    height: 30%;
+    margin-left: 10%;
+}
+
+.description {
+    margin-top: 5%;
+    width: 80%;
+    margin-left: 10%;
+}
+.checkout {
+    margin-left: 10%;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: green;
+    color: rgb(0, 0, 0);
+    margin-top: 3px;
+}
+.cart {
+    margin-left: 1%;
+    border: 1px solid black;
+    padding: 5px;
+    margin-top: 3px;
+    background-color: rgb(251, 255, 0);
+    color: rgb(0, 0, 0);
+}
+
+h2.title {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.comment {
+    width: 80%;
+ 
+    padding: 5px;
+    margin-top: 5px;
+  
+    display: block;
+}
+.flex {
+    display: flex;
+}
+
+.clacification {
+    display: flex;
+
+}
+
+img.clacification {
+    width: 20px;
+    height: 20px;
+    
+}
+
+.body-comment {
+    justify-content: space-between;
+}

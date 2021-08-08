@@ -1,0 +1,39 @@
+ul {
+    list-style: none;
+    color: rgb(0, 0, 0);
+    background-color: #cacaca;
+    width: 23%;
+    height: 100vh;
+    padding: 5px;
+    padding-left: auto;
+    padding-right: auto;
+
+}
+ul li {
+    margin-top: 13px;
+    padding: 5px;
+
+   
+}
+
+ul a {
+    color: #000000;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: auto;
+    display: flex;
+    font-size: 12px;
+    font-weight: 450;
+}
+
+ul a img {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+}
+
+
+a {
+    color: black;
+    text-decoration: none;
+}
