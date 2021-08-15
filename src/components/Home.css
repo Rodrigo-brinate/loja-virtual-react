@@ -13,9 +13,36 @@
 
 .card {
     display: inline-flex;
-    margin-left: 10px;
+    margin-left: 7%;
 }
 
 .carrosel-home  {
     width: 80% !important;
+    margin-top: 30px;
+}
+
+.main div {
+    width: 100%;
+}
+
+.main {
+    display: block;
+}
+
+.main h1 {
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    display: block;
+}
+
+@media only screen  and (max-width: 600px){
+
+    .main {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+    
 }

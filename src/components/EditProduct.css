@@ -1,0 +1,19 @@
+.table-edit {
+    margin-top: -650px;
+}
+
+textarea {
+    font-size: 12px;
+    height: 80px;
+    width: 220px;
+}
+
+@media only screen and (max-width: 850px){
+    .table-edit {
+        margin-top:  0px;
+        width: 80%;
+        display: block;
+    }
+
+    
+}

@@ -12,7 +12,7 @@ function CreateProduct() {
     const [description, setDescription] = useState()
     const [category, setCategory] = useState()
     const [photo_main, setPhoto_main] = useState([])
-    const [images, setImages] = useState()
+    const [images, setImages] = useState([])
     const [value, setValue] = useState()
     const [categories, setCategories] = useState()
 
@@ -29,12 +29,38 @@ useEffect(() => {
   }, []);
 
 
+
+
+
+
+
+  
+useEffect(() => {
+   const config = {
+       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+   };
+   api
+     .get("/cart/"+ localStorage.getItem('id'),config)
+     .then((response) =>  console.log(response)
+     )
+     
+     
+     .catch((err) => {
+       console.error("ops! ocorreu um erro" + err);
+       console.log(err)
+       if (err){
+       return window.location.href = "http://10.0.0.104:3000/login"      }
+     });
+
+     
+   
+ }, []);
+
     //console.log(localStorage.getItem('token')) 
 
 if (localStorage.getItem('token') == undefined){
     return <Redirect to="/login/" />
 }
-
 
 
 
@@ -65,13 +91,19 @@ function handleName(e) {
  }
 
  function handleimages(e) {
-    setImages(e.target.files);
-    console.log(e.target.files[0].name)
+    //setImages(e.target.files);
+    console.log(e.target.files)
   //  e.target.files.map((product) => 
+  var a = []
     Object.keys(e.target.files).forEach((key) => 
-    console.log(e.target.files[key])
+    //console.log(e.target.files[key])
+      a.push(e.target.files[key])
+
    // console.log(Object.keys(e.target.files))
     )
+    console.log(a)
+    setImages(a)
+    console.log(images)
  }
 
  function handlevalue(e) {
@@ -90,7 +122,10 @@ function handleName(e) {
      formData.append('name', name)
      formData.append('description', description)
      formData.append('category', categories[0].props.value)
-     formData.append('image', images)
+
+     images.forEach((item) => {
+      formData.append('image[]', item)
+     })
      formData.append('value', value)
      formData.append('id', localStorage.getItem('id'))
 
@@ -143,7 +178,6 @@ function handleName(e) {
                 {categories}
             </select>
             <input onChange={handlePhoto_main} name="photo_main" placeholder="digite a descrição do produto" type="file" />
-            <input onChange={handleimages} name="image" placeholder="digite a descrição do produto" type="file" multiple="multiple" />
             <input onChange={handlevalue} name="value" placeholder="digite o valor do produto" type="number" />
             <button onClick={handleSubmit} >adicionar produto</button>
 

@@ -10,8 +10,13 @@ import Login from './pages/Login'
 import Product from './pages/Product'
 import Register from './pages/Register';
 import Cart from './pages/Cart'
+import ProductCategory from './pages/ProductCategory';
 import CreateProduct from './pages/CreateProduct';
+import ManangeProduct from './pages/ManangeProduc';
+import EditProduct from './components/EditProduct';
 import reportWebVitals from './reportWebVitals';
+
+
 
 ReactDOM.render(
   
@@ -24,6 +29,9 @@ ReactDOM.render(
     <Route component = { Register }  path="/register" exact />
     <Route component = { Cart }  path="/cart" exact />
     <Route component = { CreateProduct }  path="/create-prouct" exact />
+    <Route component = { ProductCategory }  path="/category/filter/:id" exact />
+    <Route component = { ManangeProduct }  path="/manange-product" exact />
+    <Route component = { EditProduct }  path="/edit/product/:id" exact />
 
 
     </BrowserRouter>

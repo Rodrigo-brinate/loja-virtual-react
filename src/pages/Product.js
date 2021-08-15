@@ -9,7 +9,7 @@ import {useParams} from "react-router-dom";
 
 
 
- function Profile() {
+ function Product() {
     //console.log(localStorage.getItem('token')) 
     const [product, setProduct] = useState([])
     const [images, setImages] = useState([])
@@ -38,6 +38,34 @@ import {useParams} from "react-router-dom";
       }, []);
 
 
+
+
+
+
+
+
+      
+//// verifica se o token está funcionando
+/*
+useEffect(() => {
+  const config = {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  };
+  api
+    .get("/cart/"+ localStorage.getItem('id'),config)
+    .then((response) =>  console.log(response)
+    )
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+      console.log(err)
+      if (err){
+      //return window.location.href = "http://10.0.0.104:3000/login"      
+    }
+    });
+}, []);
+*/
+
+
       //// busca os comentarios
       useEffect(() => {
         api
@@ -48,7 +76,7 @@ import {useParams} from "react-router-dom";
             
           <div className="mx-auto comment  ">
               <div className="flex">
-                  <img width="20px" height="20px" src="../img/profile.png"/>&nbsp;
+                  <img width="20px" height="10px" src="../img/profile.png"/>&nbsp;
                   <p className="block">{product.name}</p>
              </div>
               <br/>
@@ -86,6 +114,7 @@ import {useParams} from "react-router-dom";
      function handleComent(e) {
         setComment(e.target.value);
         console.log(e.target.value)
+        console.log(product)
      }
 
 
@@ -100,7 +129,7 @@ import {useParams} from "react-router-dom";
     await  api
           .post("/product/comment",{
                 user_id: localStorage.getItem('id'),
-                id: product.product_id,
+                id: product.id,
                 comment: comment,
                 clacification: clacification
         },
@@ -127,7 +156,24 @@ import {useParams} from "react-router-dom";
 
 }
 
+async function cart(){
+  const config = {
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+};
+ 
+    await api
+      .get("/add/cart/"+localStorage.getItem('id')+ "/" +id , config)
+      .then((response) => {
+        console.log(response.data)
+     
+       //console.log(response.data)
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
 
+
+}
 
     //  console.log(images)
 //console.log(product.id)
@@ -141,11 +187,11 @@ var description = product.product_description
   return (
      <main>
 <Carousel> 
-    {images}
-  <Carousel.Item interval={1000}>
+    
+  <Carousel.Item interval={2000}>
     <img
-      className="d-block w-100"
-      src={"http://10.0.0.104:8001/storage/" + product.image}
+      className="d-block "
+      src={"http://10.0.0.104:8001/storage/" + product.photo_main}
       alt="First slide"
     />
     
@@ -154,7 +200,8 @@ var description = product.product_description
 
 <h2 className="title">{title}</h2>
 <button className="checkout">comprar</button>
-<button className="cart">adicionar ao carrinho</button>
+
+<button onClick={cart} className="cart">adicionar ao carrinho</button>
 
 
 <p className="description">{description}</p>
@@ -175,7 +222,7 @@ var description = product.product_description
         <option value="5">★★★★★</option>
     </select>
 
-    <button onClick={handleSubmit} className="mx-auto  d-block w-max mt-2 px-2">comentar</button>
+    <button onClick={handleSubmit} className="mx-auto btn-comment   d-block w-max mt-2 px-2">comentar</button>
 </div>
 <br/>
 <br/>
@@ -200,4 +247,4 @@ var description = product.product_description
   );
 }
 
-export default Profile;
+export default Product;

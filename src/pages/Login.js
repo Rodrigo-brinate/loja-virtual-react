@@ -11,6 +11,7 @@ function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [token, setToken] = useState('');
+    const [erro, setErro] = useState()
 
     function handleEmailChange(e) {
         setEmail(e.target.value);
@@ -33,10 +34,13 @@ async function  handleLogin() {
           console.log(response.data)
            localStorage.setItem('token', response.data.access_token)
            localStorage.setItem('id', response.data.id)
+           localStorage.setItem('ranking', response.data.ranking)
           }
            )
           .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
+            setErro(<div className="error">email ou senha incorreta</div>)
+
           });
       
          
@@ -58,7 +62,9 @@ async function  handleLogin() {
   return (
      <main>
          <div className="login">
-         <h1 className="login">login</h1>
+         <h1 className="login">Login</h1>
+
+         {erro}
 
          <input className="login" placeholder="digite seu email" type="email" onChange={handleEmailChange} name="email" /> 
 

@@ -12,6 +12,26 @@ function Cart() {
     const [total, setTotal] = useState(0)
     
 
+    async function cartRemove(id){
+
+      const config = {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    };
+     
+        await api
+          .get("/remove/cart/"+localStorage.getItem('id')+ "/" +id , config)
+          .then((response) => {
+            console.log(response.data)
+         
+           //console.log(response.data)
+          })
+          .catch((err) => {
+            console.error("ops! ocorreu um erro" + err);
+          });
+    window.location.reload()
+    
+    }
+
     
     useEffect(() => {
         const config = {
@@ -21,12 +41,14 @@ function Cart() {
           .get("/cart/"+ localStorage.getItem('id'),config)
           .then((response) =>  {
           setCart(response.data.map((product) =>
-             <div className="flex mx-4 justify-between">
-                 <img width="50px" src={"http://10.0.0.104:8001/storage/" + product.photo_main}/>
+             <div className="flex cart-page mx-4">
+                 <img className="cart-img" src={"http://10.0.0.104:8001/storage/" + product.photo_main}/>
                  &nbsp;
-                <p>{product.product_name}</p>
+                <p className="cart-name">{product.product_name.slice(0,80)}</p>
                 &nbsp; &nbsp;
-                <p className="">{product.value}</p>
+                <img className="cart-delete" src="../img/delete.png" onClick={() => cartRemove(product.id)}/>
+                &nbsp;
+                <p className="cart-value">{product.value}</p>
             </div>
           ))
           

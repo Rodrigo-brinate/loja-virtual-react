@@ -1,0 +1,93 @@
+.category-title{
+    margin-left: 100px;
+    width: 100px;
+    height: 40px;
+    margin-bottom: -10px;
+    text-align: center;
+    
+}
+
+.list-category {
+    width: 40%;
+    height: max-content;
+    margin-left: 60px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    min-height: 300px;
+    border-radius: 8px;
+    background-color: #b8b4b4;
+    
+}
+
+ul:hover {
+ display: inline-block;
+
+}
+
+.list-category a li:hover + .list-category {
+    display: inline-block;
+   
+   }
+
+
+.list-category::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    /*Faz seta "apontar para baixo. Definir o valor como 'top' fará ela "apontar para cima" */
+    /*Aqui entra a cor da "aba" do balão */
+    border-bottom: 20px solid #b8b4b4;
+    top: -12px; /*localização. Experimente alterar para 'bottom'*/
+    left: 20%;
+}
+
+.list-category a {
+    width:100px;
+    border: 1px solid black;
+    height: max-content;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+.list-category a:hover {
+    background-color: gray;
+}
+
+
+
+.list-category a li {
+text-align: center;
+justify-content: center;
+display: flex;
+margin-top: 0px;
+}
+
+.category-title:hover + .list-category{
+   display: inline-block;
+   transition: 600ms;
+   animation-duration: 800ms;
+  animation-name: category;
+}
+
+
+@keyframes category {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media only screen  and (max-width: 600px){
+
+    .list-category {
+        left: 28%;
+    }
+}

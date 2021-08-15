@@ -22,6 +22,7 @@ h1.login {
     margin-right: auto;
     padding: 8px;
     width: max-content;
+    margin-top: 20px;
 }
 span.login {
     display: none;
@@ -56,4 +57,34 @@ a.register {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.error {
+    background-color: rgba(253, 8, 8, .4);
+    padding: 10px;
+    border-radius: 5px;
+    animation-name: error;
+    animation-duration: 150ms;
+    width: max-content;
+    margin-right: auto;
+    margin-left: auto;
+    animation-iteration-count: 3;
+}
+
+@keyframes error {
+    0% {
+        margin-left: 80px;
+    }
+    50% {
+        margin-left: 120px;
+    }
+    100% {
+        margin-left: 80px;
+    }
+}
+
+@media only screen  and (max-width: 600px){
+    div.login {
+        width: 50%;
+    }
 }

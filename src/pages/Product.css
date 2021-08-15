@@ -16,6 +16,7 @@
     background-color: green;
     color: rgb(0, 0, 0);
     margin-top: 3px;
+    width: max-content;
 }
 .cart {
     margin-left: 1%;
@@ -24,6 +25,7 @@
     margin-top: 3px;
     background-color: rgb(251, 255, 0);
     color: rgb(0, 0, 0);
+    width: max-content;
 }
 
 h2.title {
@@ -34,12 +36,16 @@ h2.title {
 
 .comment {
     width: 80%;
- 
     padding: 5px;
     margin-top: 5px;
-  
     display: block;
 }
+
+.comment img {
+    width: 23px;
+    height: 23px;
+}
+
 .flex {
     display: flex;
 }
@@ -47,6 +53,11 @@ h2.title {
 .clacification {
     display: flex;
 
+}
+
+.btn-comment {
+    padding: 10px;
+    border-radius: 5px;
 }
 
 img.clacification {
@@ -57,4 +68,18 @@ img.clacification {
 
 .body-comment {
     justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px){
+    .carousel {
+        margin-top: 10px;
+    }
+    .cart, .checkout {
+        border-radius: 5px;
+    }
+
+    .btn-comment {
+        padding: 10px;
+        border-radius: 5px;
+    }
 }

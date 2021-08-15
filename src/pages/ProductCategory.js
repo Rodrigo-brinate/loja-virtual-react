@@ -1,33 +1,44 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel, Card,Button } from 'react-bootstrap';
-import './Home.css'
+//import './Home.css'
 import api from "../services/api";
-import Category from "./Category";
+//import Category from "./Category";
 import { Link } from 'react-router-dom';
+import {useParams} from "react-router-dom";
 
 
 
-function Home() {
+function ProductCategory() {
   const url = 'http://10.0.0.104:8001'
   
   const [product, setProduct] = useState([]);
+  const [categoryName, setCategoryName] = useState()
 
- 
+  let { id } = useParams();
+
   useEffect(() => {
     api
-      .get("/")
+      .get("/category/filter/"+id)
       .then((response) =>  setProduct(response.data))
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-    
-  }, []);
+    }, []);
+
+    useEffect(() => {
+      api
+        .get("/category/name/"+id)
+        .then((response) =>  setCategoryName(response.data.category_name))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
+      }, []);
+
   
 
   console.log(product)
 const listItems = product.map((product) =>
-
   <Card style={{ width: '12rem', height: '25rem', marginTop: '1rem' }}>
   <Card.Img variant="top" src={url+ "/storage/" + product.photo_main} />
   <Card.Body>
@@ -39,30 +50,18 @@ const listItems = product.map((product) =>
   </Card.Body>
 </Card>
 );
-//console.log(listItems)
 
     
 
   return (
-   
-     <main className="main">
-
-
-<div className="">
-<img
-      className="d-block w-100 mt-4"
-      src="https://cdn.pixabay.com/photo/2017/11/29/13/28/a-discount-2986181_960_720.jpg"
-      alt="First slide"
-    />
-
-
-<div className="main-card">{listItems}</div>
-
-
-</div>
-     </main>
-    
+<main className="main">
+  <h1 >{categoryName}</h1>
+  <br/>
+    <div className="">
+        <div className="main-card">{listItems}</div>
+    </div>
+</main>
   );
 }
 
-export default Home;
+export default ProductCategory;

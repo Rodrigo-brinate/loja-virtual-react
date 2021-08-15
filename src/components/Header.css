@@ -34,3 +34,62 @@ input.search {
     border: none;
     border-bottom: 1px solid black;
 }
+
+.search-done {
+    position: absolute;
+    left: 15%;
+    margin-top: 20px;
+    width: 70%;
+    background-color: rgb(180, 177, 177);
+    z-index: 3;
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+}
+
+.test {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+.search-li{
+    list-style: none;
+    display: flex;
+    height: 40px;
+    margin-top: 10px;
+}
+
+@media only screen  and (max-width: 600px){
+    header {
+        display: block;
+    }
+    .search {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div.icons-header {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: max-content;
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: max-content;
+    }
+    .category-title {
+        margin-left: auto !important;
+        margin-right: auto;
+        width: max-content;
+        margin-top: 20px;
+    }
+    .list-category {
+        left: 80px;
+    }
+}
