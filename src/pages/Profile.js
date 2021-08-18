@@ -7,19 +7,13 @@ import { Redirect } from 'react-router'
 
 
 function Profile() {
-    console.log(localStorage.getItem('token')) 
-
-if (localStorage.getItem('token') == undefined){
-    return <Redirect to="/login/" />
-}
-
-
+    if (localStorage.getItem('token') == undefined){
+        return <Redirect to="/login/" />
+    }
   return (
      <main>
          <MenuAdm />
      </main>
-    
   );
 }
-
 export default Profile;

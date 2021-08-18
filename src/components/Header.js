@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './Header.css';
+import './styles/Header.css';
 import Category from './Category';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
@@ -12,25 +12,22 @@ function Header() {
    setTimeout(() => {
      document.querySelector('.search-done').style.display = "none";
    }, 200);
-    
   }
 
   async function handleSearchChange(e){
     if (e.target.value.length > 2){
-    document.querySelector('.search-done').style.display = "block";
-     await api
+      document.querySelector('.search-done').style.display = "block";
+      await api
         .post("/search",{
             name: e.target.value
         })
         .then((response) =>  
         setSearch( response.data.map((search) =>
-        
           <li className="search-li">
             <img  src={url + "/storage/" + search.photo_main}/>
-          <Link to={`/product/${search.id}`}>  {search.product_name.slice(0,60)}  </Link>
+            <Link to={`/product/${search.id}`}>  {search.product_name.slice(0,60)}</Link>
           </li>
-      
-   )))
+        )))
         .catch((err) => {
           console.error("ops! ocorreu um erro" + err);
         });

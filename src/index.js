@@ -4,16 +4,16 @@ import './index.css';
 import { Route, BrowserRouter } from "react-router-dom";
 import App from './App';
 import Header from './components/Header';
-import Home from './components/Home';
-import Profile from './pages/Profile';
-import Login from './pages/Login'
-import Product from './pages/Product'
-import Register from './pages/Register';
+import EditProduct from './components/EditProduct';
 import Cart from './pages/Cart'
-import ProductCategory from './pages/ProductCategory';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Product from './pages/Product';
+import Profile from './pages/Profile';
+import Register from './pages/Register';
 import CreateProduct from './pages/CreateProduct';
 import ManangeProduct from './pages/ManangeProduc';
-import EditProduct from './components/EditProduct';
+import ProductCategory from './pages/ProductCategory';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -21,7 +21,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   
     <BrowserRouter>
-    <Header />
+  
     <Route component = { Home }  path="/" exact />
     <Route component = { Profile }  path="/profile" exact />
     <Route component = { Login }  path="/login" exact />
