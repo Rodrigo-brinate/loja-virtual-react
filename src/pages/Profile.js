@@ -13,6 +13,13 @@ function Profile() {
   return (
      <main>
          <MenuAdm />
+    <div className="container">
+         <i class='bx bxs-user-circle'></i>
+
+         <h5>nome:</h5><p>{localStorage.getItem('name')}</p>
+         <h5>email:</h5><p>{localStorage.getItem('email')}</p>
+         <button className="change-password">mudar senha</button>
+         </div>
      </main>
   );
 }

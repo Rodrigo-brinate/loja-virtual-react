@@ -13,16 +13,20 @@ function Login() {
     const [token, setToken] = useState('');
     const [erro, setErro] = useState()
 
+
+    // get the field email
     function handleEmailChange(e) {
         setEmail(e.target.value);
        // console.log(e.target.value)
      }
+
+     // get the field password
      function handlePasswordChange(e) {
         setPassword(e.target.value);
         //console.log(e.target.value)
      }
 
-     
+     // login 
   async function  handleLogin() {
         await  api
             .post("/login",{
@@ -34,12 +38,15 @@ function Login() {
               localStorage.setItem('id', response.data.id)
               localStorage.setItem('ranking', response.data.ranking)
               localStorage.setItem('name',response.data.name)
+              localStorage.setItem('email', response.data.email)
               console.log(response.data)
             })
             .catch((err) => {
               console.error("ops! ocorreu um erro" + err);
               setErro(<div className="error">email ou senha incorreta</div>)
             });
+            // verify if the token jwt was stored in loacal storage 
+            // and redirect from home page
             if (localStorage.getItem('token') != undefined){
                 console.log('teste')
                 return window.location.href = "http://10.0.0.104:3000";

@@ -9,9 +9,10 @@ import Header  from "../components/Header";
 
 
 function Home() {
-  const url = 'http://10.0.0.104:8001'
+  const url = 'http://10.0.0.101:8001'
   const [product, setProduct] = useState([]);
  
+  /// search the products and store the datas in state product
   useEffect(() => {
     api
       .get("/")

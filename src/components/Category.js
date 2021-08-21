@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 function Category() {
   const [category, setCategory] = useState()
 
+  //get all categoryes
   useEffect(() => {
     api
       .get("/category")

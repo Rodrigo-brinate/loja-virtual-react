@@ -17,6 +17,8 @@ import {useParams} from "react-router-dom";
     const [showComent, setShowComent] = useState()
     let { id } = useParams();
 
+
+    //get the product
     useEffect(() => {
         api
           .get("/product/"+id)
@@ -34,7 +36,7 @@ import {useParams} from "react-router-dom";
           });
       }, []);
 
-      //// busca os comentarios
+      //// search the comments
       useEffect(() => {
         api
           .get("/product/comment/view/"+id)
@@ -66,12 +68,12 @@ import {useParams} from "react-router-dom";
 
 
 
-
+      //get field clacification
     function handleClacification(e) {
         setClacification(e.target.value);
         console.log(e.target.value)
      }
-
+      // get field comment
      function handleComent(e) {
         setComment(e.target.value);
         console.log(e.target.value)
@@ -101,10 +103,11 @@ import {useParams} from "react-router-dom";
               window.location.href = 'http://10.0.0.104:3000/login'
             });
           // console.log(localStorage.getItem('token'))  
-          //window.location.reload()      
-
+          //window.location.reload()     
     }
 
+    
+      // add the product in cart
     async function cart(){
         const config = {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }

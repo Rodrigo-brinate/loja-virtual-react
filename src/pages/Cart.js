@@ -10,6 +10,7 @@ function Cart() {
     const [cart, setCart] = useState([])
     const [total, setTotal] = useState(0)
 
+  // delete item of cart of user
     async function cartRemove(id){
       const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -25,7 +26,7 @@ function Cart() {
     window.location.reload()
     }
 
-    
+    //  get the elements of cart of user
     useEffect(() => {
         const config = {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }

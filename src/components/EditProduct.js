@@ -13,6 +13,7 @@ function EditProduct() {
   const [product, setProduct] = useState()
   let { id } = useParams();
 
+  // edit the product
   async function edit(){
       let name = document.getElementById('name').value
       let description = document.getElementById('description').value
@@ -35,6 +36,7 @@ function EditProduct() {
           window.location.reload()
     }
 
+    // 
   useEffect(() => {
       api
         .get("/product/"+id)

@@ -34,6 +34,28 @@ h2.title {
     margin-right: auto;
 }
 
+.bxs-user-circle {
+    font-size: 165px;
+    width: 100%;
+    margin-top: 80px;
+    text-align: center;
+    font-weight: 50;
+}
+.change-password {
+    width: max-content;
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 80%;
+    margin-top: 100px;
+}
+
 .comment {
     width: 80%;
     padding: 5px;

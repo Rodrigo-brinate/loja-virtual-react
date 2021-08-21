@@ -8,7 +8,7 @@
 }
 
 .list-category {
-    width: 40%;
+    width: 50%;
     height: max-content;
     margin-left: 60px;
     display: none;
@@ -46,7 +46,7 @@ ul:hover {
 }
 
 .list-category a {
-    width:100px;
+    width:130px;
     border: 1px solid black;
     height: max-content;
     border-radius: 5px;

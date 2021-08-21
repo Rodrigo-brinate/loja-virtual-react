@@ -1,7 +1,7 @@
 div.form {
     width: max-content;
 margin: auto;
-margin-top: -600px;
+margin-top: 100px;
 }
 
 input, select {
@@ -13,7 +13,7 @@ input, select {
     border-bottom: 1px solid black;
 }
 
-button {
+button.create {
     border: none;
     border-radius: 10px;
     background-color: rgb(96, 160, 96);
@@ -26,6 +26,6 @@ button {
     div.form {
         width: max-content;
     margin: auto;
-    margin-top: 0px;
+    margin-top: 100px;
     }
 }

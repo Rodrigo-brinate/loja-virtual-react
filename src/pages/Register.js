@@ -13,22 +13,25 @@ function Register() {
     const [password, setPassword] = useState();
     const [token, setToken] = useState('');
 
+    //get datas of field email
     function handleEmailChange(e) {
         setEmail(e.target.value);
        // console.log(e.target.value)
      }
+
+     // get datas of field password
      function handlePasswordChange(e) {
         setPassword(e.target.value);
         //console.log(e.target.value)
      }
-
+     //get datas of field name
      function handleNameChange(e) {
         setName(e.target.value);
         //console.log(e.target.value)
      }
 
-     
-  async function  handleLogin() {
+     // register a user
+  async function  handleRegister() {
         await  api
             .post("/register",{
                   name:name,
@@ -65,7 +68,7 @@ function Register() {
           <span className="login">digite sua senha</span>
           <input className="login" placeholder="digite sua senha " type="password" onChange={handlePasswordChange} name="password" />
 
-          <button className="login" to="/" onClick={handleLogin}>entrar</button>
+          <button className="login" to="/" onClick={handleRegister}>entrar</button>
           <div className="register">
             <br/> 
           ainda não tem conta <br/>

@@ -12,6 +12,8 @@ function ManangeProduct() {
   console.log(localStorage.getItem('token')) 
   const [product, setProduct] = useState()
 
+
+  //get the products and stored in state
   useEffect(() => {
       api
         .get("/manangeProduct")
@@ -30,6 +32,7 @@ function ManangeProduct() {
         });
       }, []);
 
+      // delete a product
    async function productDelete(id){
     const config = {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -44,6 +47,7 @@ function ManangeProduct() {
     window.location.reload()
     }
 
+    /// search product
   async function serachTable(e){
       if (e.target.value.length > 2){
           await api
@@ -52,7 +56,6 @@ function ManangeProduct() {
               })
               .then((response) =>  
               setProduct( response.data.map((item) =>
-              
               <tr>
                 <td>{item.id}</td>
                 <td>{item.product_name}</td>
@@ -70,6 +73,7 @@ function ManangeProduct() {
     if (localStorage.getItem('token') == undefined){
         return <Redirect to="/login/" />
     }
+    
   return (
      <main>
          <MenuAdm />

@@ -12,6 +12,8 @@ function ProductCategory() {
   const [product, setProduct] = useState([]);
   const [categoryName, setCategoryName] = useState()
   let { id } = useParams();
+
+  // serach products of a category
   useEffect(() => {
     api
       .get("/category/filter/"+id)
@@ -29,6 +31,7 @@ function ProductCategory() {
         });
       }, []);
 
+      // set the datas of product in html
     const listItems = product.map((product) =>
       <Card style={{ width: '12rem', height: '25rem', marginTop: '1rem' }}>
         <Card.Img variant="top" src={url+ "/storage/" + product.photo_main} />
