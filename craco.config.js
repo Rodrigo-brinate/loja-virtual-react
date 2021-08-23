@@ -1,5 +1,5 @@
 // craco.config.js
-module.exports = {
+/*module.exports = {
     style: {
       postcss: {
         plugins: [
@@ -8,4 +8,4 @@ module.exports = {
         ],
       },
     },
-  }
+  }*/
