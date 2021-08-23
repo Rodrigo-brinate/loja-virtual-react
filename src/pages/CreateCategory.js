@@ -5,22 +5,12 @@ import './styles/CreateProduct.css'
 import MenuAdm from '../components/MenuAdm'
 import { Redirect } from 'react-router'
 
-function CreateProduct() {
-    const [name, setName] = useState()
+function CreateCategory() {
+    const [name, setName] = useState();
+    const [response, setResponse] = useState()
    
 
-   useEffect(() => {
-      api
-         .get("/category")
-         .then((response) =>  setCategories(response.data.map((product) =>
-            <option value={product.id}>{product.category_name}</option>
-         )))
-         .catch((err) => {
-         console.error("ops! ocorreu um erro" + err);
-         });
-   }, []);
-
-
+  
    useEffect(() => {
       const config = {
          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -46,25 +36,30 @@ function CreateProduct() {
    }
 
 
-  function handleSubmit(){
+ async function handleSubmit(){
      
     const config = {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}`,
-            "Content-Type": "multipart/form-data" }
-    };
-       api
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}};
+    await   api
           .post("/adm/create-category",{
-                name: name
+                name: name,
+                id: localStorage.getItem('id'),
+                email: localStorage.getItem('email')
           },config
         )
           .then((response) =>{  console.log(response.status)
            if(response.status == 200){
-              window.location.reload()
+            //  window.location.reload()
+            setResponse(
+               <div className={response.data.res}>
+              { response.data.response}
+               </div>
+               )
           }})
           .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
           //  alert('não foi possivel registrar seu comentario faça login ou cadastre-se e tente novamente')
-            window.location.href = 'http://10.0.0.104:3000/login'
+            //window.location.href = 'http://10.0.0.104:3000/login'
           });
          // console.log(localStorage.getItem('token'))  
          //window.location.reload()      
@@ -74,15 +69,11 @@ function CreateProduct() {
      <main>
          <MenuAdm  />
          
-         <div className="form"><h1>Adicionar produto</h1>
-            <input onChange={handleName} name="name" placeholder="digite o nome do produto" type="text" />
-            <input onChange={handleDescription} name="description" placeholder="digite a descrição do produto" type="text" />
-            <select name="category" onChange={handleCategory}>
-                <option>selecione a categoria do produto</option>
-                {categories}
-            </select>
-            <input onChange={handlePhoto_main} name="photo_main" placeholder="digite a descrição do produto" type="file" />
-            <input onChange={handlevalue} name="value" placeholder="digite o valor do produto" type="number" />
+         <div className="form">
+            
+            <h1>Adicionar produto</h1>
+            <div>{response}</div>
+            <input onChange={handleName} name="name" placeholder="digite o nome da categoria" type="text" />
             <button className="create" onClick={handleSubmit} >adicionar produto</button>
          </div>
      </main>
@@ -90,4 +81,4 @@ function CreateProduct() {
   );
 }
 
-export default CreateProduct;
+export default CreateCategory;

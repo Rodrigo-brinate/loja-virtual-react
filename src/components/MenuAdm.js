@@ -113,12 +113,12 @@ useEffect(() => {
                   <li className="li">Gerenciar produtos</li>
                </Link>
       
-               <Link to="/">
+               <Link to="/create-category">
                   <i className='bx bxs-add-to-queue icon'></i>
                   <li className="li">Adicionar categorias</li>
                </Link>
       
-               <Link to="/">
+               <Link to="/manange-categories">
                   <i className='bx bxs-edit icon'></i>
                   <li className="li">Gerenciar categorias</li>
                </Link>

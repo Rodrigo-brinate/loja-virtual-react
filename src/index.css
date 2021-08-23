@@ -16,3 +16,38 @@ code {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.e {
+  background-color: #ff00004a;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.s {
+  background-color: rgba(0, 128, 0, 0.288);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.alert-delete{
+  position: fixed;
+    left: calc(50% - 200px);
+    width: 200px;
+    font-size: 14px;
+    background: #989898;
+    padding: 10px;
+    color: wheat;
+    font-family: poppins;
+}
+
+.alert-delete div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.alert-delete div button {
+  border: 1px solid black;
+    padding: 1px 5px;
+    background: gray;
+}

@@ -9,7 +9,7 @@ import Header  from "../components/Header";
 
 
 function Home() {
-  const url = 'http://10.0.0.101:8001'
+  const url = 'http://10.0.0.100:8001'
   const [product, setProduct] = useState([]);
  
   /// search the products and store the datas in state product
@@ -27,7 +27,7 @@ function Home() {
       <Card.Img variant="top" src={url+ "/storage/" + product.photo_main} />
       <Card.Body>
         <Card.Title style={{ width: '9rem', height: '4rem' }}>{product.product_name.slice(0, 30)}</Card.Title>
-        <Card.Text style={{ width: '7rem', height: '2rem' }}>{product.product_description.slice(0, 40)}</Card.Text>
+        <Card.Text style={{ width: '7rem', height: '3rem' }}>{product.product_description.slice(0, 40)}</Card.Text>
         <Link to={'/product/'+ product.id} >
         <Button variant="primary">ver mais</Button>
         </Link>

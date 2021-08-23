@@ -49,7 +49,7 @@ function Login() {
             // and redirect from home page
             if (localStorage.getItem('token') != undefined){
                 console.log('teste')
-                return window.location.href = "http://10.0.0.104:3000";
+                return window.location.href = "http://10.0.0.100:3000";
             }
       }
   return (

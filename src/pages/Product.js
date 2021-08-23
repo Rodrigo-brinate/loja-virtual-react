@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import api from "../services/api";
 import './styles/Product.css'
 import { Carousel, Card,Button } from 'react-bootstrap';
-
+import Header  from "../components/Header";
 import { Redirect } from 'react-router'
 import {useParams} from "react-router-dom";
 
@@ -126,9 +126,10 @@ import {useParams} from "react-router-dom";
 
   return (
      <main>
+       <Header />
       <Carousel> 
         <Carousel.Item interval={2000}>
-          <img className="d-block " src={"http://10.0.0.104:8001/storage/" + product.photo_main} alt="First slide" />
+          <img className="d-block " src={"http://10.0.0.100:8001/storage/" + product.photo_main} alt="First slide" />
         </Carousel.Item>
       </Carousel>
 
